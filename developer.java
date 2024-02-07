@@ -2,8 +2,24 @@ package Java.javacore;
 
 public class developer extends employee {
     
-    public int expYear;
-    public String teamName;
+    private int expYear;
+    private String teamName;
+
+    public int getExpYear() {
+        return expYear;
+    }
+
+    public void setExpYear(int expYear) {
+        this.expYear = expYear;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
 
     public developer() {
 
@@ -19,16 +35,16 @@ public class developer extends employee {
     public double getSalary() {
         double salary = 0.0;
         if(expYear < 4) {
-            return salary = baseSalary;
+            return salary = getBaseSalary();
         } else {
             if(expYear >= 4 && expYear <= 7) {
-                return salary = baseSalary + 0.04 * baseSalary;
+                return salary = getBaseSalary() + 0.04 * getBaseSalary();
             } else {
                 if(expYear >= 8 && expYear <= 10) {
-                    return salary = baseSalary + 0.08 * baseSalary;
+                    return salary = getBaseSalary() + 0.08 * getBaseSalary();
                 } else {
                     if(expYear >= 11) {
-                        return salary = baseSalary + 0.12 * baseSalary;
+                        return salary = getBaseSalary() + 0.12 * getBaseSalary();
                     }
                 }
             }
@@ -38,12 +54,17 @@ public class developer extends employee {
 
     @Override
     public developer copy() {
-        developer developer = new developer(id, name, age, baseSalary, expYear, teamName);
+        developer developer = new developer(getId(), getName(), getAge(), getBaseSalary(), getExpYear(), getTeamName());
         return developer;
     }
 
+    // @Override
+    // public void printInformation() {
+    //     System.out.printf("Developer[id = %d, name = %s, age = %d, Base Salary = %d, EXP Year = %d, team name = %s]\n", id, name, age, baseSalary, expYear, teamName);
+    // }
+
     @Override
-    public void printInformation() {
-        System.out.printf("Developer[id = %d, name = %s, age = %d, Base Salary = %d, EXP Year = %d, team name = %s]\n", id, name, age, baseSalary, expYear, teamName);
+    public String toString() {
+        return super.toString();
     }
 }

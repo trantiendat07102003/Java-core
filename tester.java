@@ -2,7 +2,15 @@ package Java.javacore;
 
 public class tester extends employee{
     
-    public String type;
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public tester() {
 
@@ -16,21 +24,26 @@ public class tester extends employee{
     @Override
     public double getSalary() {
         if("administrative tester".equalsIgnoreCase(type)) {
-            return baseSalary + 0.25 * baseSalary;
+            return getBaseSalary() + 0.25 * getBaseSalary();
         } else {
-            return baseSalary + 0.05 * baseSalary;
+            return getBaseSalary() + 0.05 * getBaseSalary();
         }
         
     }
 
     @Override
     public tester copy() {
-        tester tester = new tester(id, name, age, baseSalary, type);
+        tester tester = new tester(getId(), getName(), getAge(), getBaseSalary(), getType());
         return tester;
     }
 
+    // @Override
+    // public void printInformation() {
+    //     System.out.printf("Tester[id = %d, name = %s, age = %d, baseSalary = %d, type = %s]", id, name, age, baseSalary, type);
+    // }
+
     @Override
-    public void printInformation() {
-        System.out.printf("Tester[id = %d, name = %s, age = %d, baseSalary = %d, type = %s]", id, name, age, baseSalary, type);
+    public String toString() {
+        return super.toString();
     }
 }
