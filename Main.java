@@ -50,5 +50,7 @@ public class Main {
         //         array.get(i).printInformation();
         //     }
         // }
+
+        System.out.println("hello World!");
     }
 }
